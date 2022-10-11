@@ -5,7 +5,7 @@ const columns = [
     title: "Form Details",
     key: "operation",
     fixed: "left",
-    width: 100,
+    width: 150,
     render: () => <p>view details</p>,
   },
   {

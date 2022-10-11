@@ -53,7 +53,7 @@ const FormSectionBottom = () => {
                   name="rateQuality"
                   id="bad"
                 />
-                <label className="form-check-label" htmlFor="bad1">
+                <label className="form-check-label" htmlFor="bad">
                   Bad
                 </label>
               </div>

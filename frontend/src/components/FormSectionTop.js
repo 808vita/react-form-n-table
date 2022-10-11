@@ -66,11 +66,6 @@ const FormSectionTop = () => {
           </div>
         </div>
       </div>
-      <div className="col-auto">
-        <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
-      </div>
     </div>
   );
 };
