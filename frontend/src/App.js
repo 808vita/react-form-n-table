@@ -3,6 +3,7 @@ import "./App.css";
 import Header from "./components/Header";
 import FeedbackPage from "./pages/FeedbackPage";
 import ThankYouPage from "./pages/ThankYouPage";
+import ViewDataPage from "./pages/ViewDataPage";
 
 function App() {
   return (
@@ -10,7 +11,8 @@ function App() {
       <Header />
       <div>
         {/* <FeedbackPage /> */}
-        <ThankYouPage />
+        {/* <ThankYouPage /> */}
+        <ViewDataPage />
       </div>
     </div>
   );
