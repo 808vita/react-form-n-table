@@ -1,12 +1,12 @@
 import CountrySelector from "./CountrySelector";
 const FormSectionTop = ({ errors, handleChange, formValues }) => {
   return (
-    <div className="row g-3">
+    <div className="row g-5">
       {/* //left section  */}
-      <div className="col-md-6">
+      <div className="col-md-6 mb-3">
         {/* customerName */}
         <div className="row g-3">
-          <div className="col-md-12">
+          <div className="col-md-12 mb-3">
             <label htmlFor="inputName" className="form-label">
               Customer Name
             </label>
@@ -28,14 +28,14 @@ const FormSectionTop = ({ errors, handleChange, formValues }) => {
             <label htmlFor="inputPhone" className="form-label">
               Phone
             </label>
-            <div className="row g-1">
-              <div className="col-md-3">
+            <div className="row g-3">
+              <div className="col-md-2">
                 <div>
                   <CountrySelector handleChange={handleChange} />
                 </div>
               </div>
 
-              <div className="col-md-9">
+              <div className="col-md-10">
                 <input
                   type="number"
                   className="form-control"
@@ -56,7 +56,7 @@ const FormSectionTop = ({ errors, handleChange, formValues }) => {
       <div className="col-md-6">
         {/* email */}
         <div className="row g-3">
-          <div className="col-md-12">
+          <div className="col-md-12 mb-3">
             <label htmlFor="inputEmail" className="form-label">
               Email
             </label>

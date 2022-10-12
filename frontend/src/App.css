@@ -27,3 +27,12 @@ body{
 .ant-table-thead .ant-table-cell {
   background-color: rgba(160, 30, 211, 0.089);
 }
+
+.form-label:after {
+  content:"*";
+  color:red;
+}
+
+form .form-label{
+ font-weight:bolder; 
+}

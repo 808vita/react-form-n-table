@@ -3,13 +3,13 @@ import FormQuestion from "./FormQuestion";
 
 const FormSectionBottom = ({ errors, handleChange, formValues }) => {
   return (
-    <div className="row g-3">
+    <div className="row g-5">
       {/* //left section  ques*/}
       <div className="col-md-6">
         {/* rateQuality */}
         <div className="row g-3">
           {/* <FormQuestion /> */}
-          <div className="col-md-12">
+          <div className="col-md-10 mb-3">
             <label htmlFor="inputRateService" className="form-label">
               Please rate the quality of the service you received from your
               host.
@@ -23,7 +23,7 @@ const FormSectionBottom = ({ errors, handleChange, formValues }) => {
         </div>
         {/* resClean */}
         <div className="row g-3">
-          <div className="col-md-12">
+          <div className="col-md-10 mb-3">
             <label htmlFor="inputRateClean" className="form-label">
               Was our restaurant clean?
             </label>
@@ -39,7 +39,7 @@ const FormSectionBottom = ({ errors, handleChange, formValues }) => {
       <div className="col-md-6">
         {/* rateQuality */}
         <div className="row g-3">
-          <div className="col-md-12">
+          <div className="col-md-10 mb-3">
             <label htmlFor="inputRateBeverage" className="form-label">
               Please rate the quality of the beverage.
             </label>
@@ -52,7 +52,7 @@ const FormSectionBottom = ({ errors, handleChange, formValues }) => {
         </div>
         {/* resClean */}
         <div className="row g-3">
-          <div className="col-md-12">
+          <div className="col-md-10 mb-3">
             <label htmlFor="inputRateExp" className="form-label">
               Please rate your overall dining experience.
             </label>

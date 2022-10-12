@@ -101,6 +101,7 @@ const TableView = ({ tableData }) => {
 
   const onSelectChange = (newSelectedRowKeys) => {
     console.log("selectedRowKeys changed: ", selectedRowKeys);
+    console.log("current selection: ", newSelectedRowKeys);
     setSelectedRowKeys(newSelectedRowKeys);
   };
 

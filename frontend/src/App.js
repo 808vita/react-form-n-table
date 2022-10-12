@@ -7,7 +7,7 @@ import ViewDataPage from "./pages/ViewDataPage";
 
 function App() {
   return (
-    <div className="bg-light" style={{ margin: "2rem" }}>
+    <div className="bg-light" style={{ margin: "1rem" }}>
       <Header />
       <div>
         <FeedbackPage />
