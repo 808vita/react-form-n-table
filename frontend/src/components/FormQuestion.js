@@ -24,12 +24,12 @@ const FormQuestion = ({ quesType, handleChange, errors }) => {
   };
 
   useEffect(() => {
-    if (!selected) {
+    if (!selected || !quesType || !handleChange) {
       return;
     }
     handleChange({ target: { name: quesType, value: selected } });
     console.log(selected);
-  }, [selected, quesType, handleChange]);
+  }, [selected, quesType]);
 
   return (
     <>

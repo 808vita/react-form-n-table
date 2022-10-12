@@ -4,7 +4,7 @@ import validateInfo from "../utils/FormValidate";
 const useForm = () => {
   const [formValues, setFormValues] = useState({
     customerName: "",
-    countryCode: "",
+    countryCode: "IN",
     phone: "",
     email: "",
     rateService: "",

@@ -1,3 +1,4 @@
+import CountrySelector from "./CountrySelector";
 const FormSectionTop = ({ errors, handleChange, formValues }) => {
   return (
     <div className="row g-3">
@@ -28,11 +29,13 @@ const FormSectionTop = ({ errors, handleChange, formValues }) => {
               Phone
             </label>
             <div className="row g-1">
-              <div className="col-md-2">
-                <div>flag dropdown</div>
+              <div className="col-md-3">
+                <div>
+                  <CountrySelector handleChange={handleChange} />
+                </div>
               </div>
 
-              <div className="col-md-10">
+              <div className="col-md-9">
                 <input
                   type="number"
                   className="form-control"
