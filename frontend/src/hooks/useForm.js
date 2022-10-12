@@ -36,6 +36,7 @@ const useForm = () => {
   useEffect(() => {
     if (Object.keys(errors).length === 0 && submitting) {
       //  api call , set local storage & navigate
+      console.log("submitted data", formValues);
     }
   }, [errors, submitting]);
 
