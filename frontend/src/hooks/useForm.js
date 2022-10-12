@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import validateInfo from "../utils/FormValidate";
 import { postFormData } from "../utils/LoadData";
-
+import { useNavigate } from "react-router-dom";
 const useForm = () => {
   const [formValues, setFormValues] = useState({
     customerName: "",
@@ -17,6 +17,8 @@ const useForm = () => {
   const [errors, setErrors] = useState({});
 
   const [submitting, setSubmitting] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -39,6 +41,7 @@ const useForm = () => {
       //  api call , set local storage & navigate
       postFormData(formValues);
       console.log("submitted data", formValues);
+      navigate("/success");
       setSubmitting(false);
     }
     setSubmitting(false);
