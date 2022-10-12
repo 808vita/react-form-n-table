@@ -1,7 +1,7 @@
 import React from "react";
 import FormQuestion from "./FormQuestion";
 
-const FormSectionBottom = () => {
+const FormSectionBottom = ({ errors, handleChange, formValues }) => {
   return (
     <div className="row g-3">
       {/* //left section  ques*/}
@@ -10,20 +10,28 @@ const FormSectionBottom = () => {
         <div className="row g-3">
           {/* <FormQuestion /> */}
           <div className="col-md-12">
-            <label htmlFor="inputRateQuality" className="form-label">
+            <label htmlFor="inputRateService" className="form-label">
               Please rate the quality of the service you received from your
               host.
             </label>
-            <FormQuestion />
+            <FormQuestion
+              quesType={"rateService"}
+              handleChange={handleChange}
+              errors={errors}
+            />
           </div>
         </div>
         {/* resClean */}
         <div className="row g-3">
           <div className="col-md-12">
-            <label htmlFor="inputRateQuality" className="form-label">
+            <label htmlFor="inputRateClean" className="form-label">
               Was our restaurant clean?
             </label>
-            <FormQuestion />
+            <FormQuestion
+              quesType={"rateClean"}
+              handleChange={handleChange}
+              errors={errors}
+            />
           </div>
         </div>
       </div>
@@ -32,19 +40,27 @@ const FormSectionBottom = () => {
         {/* rateQuality */}
         <div className="row g-3">
           <div className="col-md-12">
-            <label htmlFor="inputRateQuality" className="form-label">
+            <label htmlFor="inputRateBeverage" className="form-label">
               Please rate the quality of the beverage.
             </label>
-            <FormQuestion />
+            <FormQuestion
+              quesType={"rateBeverage"}
+              handleChange={handleChange}
+              errors={errors}
+            />
           </div>
         </div>
         {/* resClean */}
         <div className="row g-3">
           <div className="col-md-12">
-            <label htmlFor="inputRateQuality" className="form-label">
+            <label htmlFor="inputRateExp" className="form-label">
               Please rate your overall dining experience.
             </label>
-            <FormQuestion />
+            <FormQuestion
+              quesType={"rateExp"}
+              handleChange={handleChange}
+              errors={errors}
+            />
           </div>
         </div>
       </div>

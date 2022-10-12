@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-const FormSectionTop = () => {
+const FormSectionTop = ({ errors, handleChange, formValues }) => {
   return (
     <div className="row g-3">
       {/* //left section  */}
@@ -17,8 +17,10 @@ const FormSectionTop = () => {
               placeholder="E.g. jon snow"
               name="customerName"
               required
+              onChange={handleChange}
+              value={formValues.customerName}
             />
-            <div>error will be here;</div>
+            <div>{errors?.customerName && <p>{errors?.customerName}</p>}</div>
           </div>
         </div>
         {/* phone */}
@@ -37,13 +39,15 @@ const FormSectionTop = () => {
                   type="number"
                   className="form-control"
                   placeholder="999999999"
-                  name="phoneNumber"
+                  name="phone"
                   required
+                  onChange={handleChange}
+                  value={formValues.phone}
                 />
               </div>
             </div>
 
-            <div>error will be here;</div>
+            <div>{errors?.phone && <p>{errors?.phone}</p>}</div>
           </div>
         </div>
       </div>
@@ -61,8 +65,10 @@ const FormSectionTop = () => {
               placeholder="E.g. abc@gmail.com"
               name="email"
               required
+              onChange={handleChange}
+              value={formValues.email}
             />
-            <div>error will be here;</div>
+            <div>{errors?.email && <p>{errors?.email}</p>}</div>
           </div>
         </div>
       </div>

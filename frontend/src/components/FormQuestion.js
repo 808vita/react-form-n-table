@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const FormQuestion = () => {
+const FormQuestion = ({ quesType, handleChange, errors }) => {
   const [trackCheckBox, setTrackCheckBox] = useState({
     Excellent: false,
     Good: false,
@@ -27,6 +27,7 @@ const FormQuestion = () => {
     if (!selected) {
       return;
     }
+    handleChange({ target: { name: quesType, value: selected } });
     console.log(selected);
   }, [selected]);
 
@@ -74,7 +75,7 @@ const FormQuestion = () => {
           <label className="form-check-label">Bad</label>
         </div>
       </div>
-      <div>error will be here;</div>
+      <div>{errors[quesType] && <p>{errors[quesType]}</p>}</div>
     </>
   );
 };
