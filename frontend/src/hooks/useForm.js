@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import validateInfo from "../utils/FormValidate";
+import { postFormData } from "../utils/LoadData";
 
 const useForm = () => {
   const [formValues, setFormValues] = useState({
@@ -36,6 +37,7 @@ const useForm = () => {
   useEffect(() => {
     if (Object.keys(errors).length === 0 && submitting) {
       //  api call , set local storage & navigate
+      postFormData(formValues);
       console.log("submitted data", formValues);
     }
   }, [errors, submitting]);
