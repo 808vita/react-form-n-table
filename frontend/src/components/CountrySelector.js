@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ReactCountryFlag from "react-country-flag";
 import { countries } from "../utils/countries";
 const CountrySelector = ({ handleChange }) => {

@@ -39,8 +39,11 @@ const useForm = () => {
       //  api call , set local storage & navigate
       postFormData(formValues);
       console.log("submitted data", formValues);
+      setSubmitting(false);
     }
-  }, [errors, submitting]);
+    setSubmitting(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [errors, submitting, formValues]);
 
   useEffect(() => {
     console.log(errors);

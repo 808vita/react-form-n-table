@@ -18,3 +18,12 @@ body{
   
 }
 
+.ant-checkbox-checked .ant-checkbox-inner {
+  background-color: rgb(160, 30, 211);
+  
+
+}
+
+.ant-table-thead .ant-table-cell {
+  background-color: rgba(160, 30, 211, 0.089);
+}

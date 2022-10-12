@@ -29,6 +29,7 @@ const FormQuestion = ({ quesType, handleChange, errors }) => {
     }
     handleChange({ target: { name: quesType, value: selected } });
     console.log(selected);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selected, quesType]);
 
   return (

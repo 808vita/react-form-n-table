@@ -4,12 +4,16 @@ export const postFormData = async (data) => {
   // localStorage.setItem("feedbackFormData", JSON.stringify([data._id]));
 
   try {
-    let feedbackFormData = JSON.parse(localStorage.getItem("feedbackFormData"));
+    let feedbackFormData = await JSON.parse(
+      localStorage.getItem("feedbackFormData")
+    );
     console.log(feedbackFormData);
     if (!feedbackFormData) {
       localStorage.setItem("feedbackFormData", JSON.stringify([data]));
 
-      feedbackFormData = JSON.parse(localStorage.getItem("feedbackFormData"));
+      feedbackFormData = await JSON.parse(
+        localStorage.getItem("feedbackFormData")
+      );
       console.log(feedbackFormData);
 
       return;
@@ -34,7 +38,9 @@ export const getFormData = async () => {
   // localStorage.setItem("feedbackFormData", JSON.stringify([data._id]));
 
   try {
-    let feedbackFormData = JSON.parse(localStorage.getItem("feedbackFormData"));
+    let feedbackFormData = await JSON.parse(
+      localStorage.getItem("feedbackFormData")
+    );
     console.log(feedbackFormData);
     if (feedbackFormData) {
       return feedbackFormData;

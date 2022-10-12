@@ -1,7 +1,21 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import TableView from "../components/TableView";
+import { processData } from "../utils/processData";
+import { getFormData } from "../utils/LoadData";
+import useTable from "../hooks/useTable";
 
 const ViewDataPage = () => {
+  // const [tableData, setTableData] = useState([]);
+  // useEffect(() => {
+  //   async function dataIndex() {
+  //     const RawData = await getFormData();
+  //     setTableData(processData(RawData));
+  //   }
+  //   dataIndex();
+  // }, []);
+
+  const { tableData } = useTable();
+
   return (
     <div>
       <div>
@@ -15,7 +29,7 @@ const ViewDataPage = () => {
         </div>
       </div>
 
-      <TableView />
+      <TableView tableData={tableData} />
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import { Switch, Table } from "antd";
 import React, { useState } from "react";
+import ReactCountryFlag from "react-country-flag";
 const columns = [
   {
     title: "Form Details",
@@ -8,17 +9,41 @@ const columns = [
     width: 150,
     render: () => <p>view details</p>,
   },
+
   {
     title: "Customer Name",
     width: 150,
-    dataIndex: "name",
-    key: "name",
+    dataIndex: "customerName",
+    key: "customerName",
   },
   {
     title: "Email",
     width: 200,
     dataIndex: "email",
     key: "email",
+  },
+  // {
+  //   title: "Code",
+  //   dataIndex: "countryCode",
+  //   key: "countryCode",
+  //   width: 100,
+  // },
+  {
+    title: "Country Code",
+    key: "operation",
+
+    width: 150,
+    render: (text, record, index) => (
+      <ReactCountryFlag
+        countryCode={record.countryCode}
+        svg
+        style={{
+          width: "2rem",
+          height: "2rem",
+        }}
+        title={record.countryCode}
+      />
+    ),
   },
   {
     title: "Phone",
@@ -27,27 +52,29 @@ const columns = [
     width: 150,
   },
   {
-    title: "Column 2",
-    dataIndex: "address",
-    key: "2",
+    title:
+      "Please rate the quality of the service you received from your host.",
+    dataIndex: "rateService",
+    key: "rateService",
     width: 300,
   },
   {
-    title: "Column 3",
-    dataIndex: "address",
-    key: "3",
+    title: "Please rate the quality of the beverage.",
+    dataIndex: "rateBeverage",
+    key: "rateBeverage",
     width: 300,
   },
   {
-    title: "Column 4",
-    dataIndex: "address",
-    key: "4",
+    title: "Was our restaurant clean?",
+    dataIndex: "rateClean",
+    key: "rateClean",
     width: 300,
   },
+
   {
-    title: "Column 5",
-    dataIndex: "address",
-    key: "5",
+    title: "Please rate your overall dining experience.",
+    dataIndex: "rateExp",
+    key: "rateExp",
     width: 300,
   },
 ];
@@ -59,12 +86,15 @@ for (let i = 0; i < 100; i++) {
     name: `Edrward ${i}`,
     email: `oof@oof${i}.oof`,
     phone: `58${i}${i + 1}`,
-
-    address: `London Park no. ${i}`,
+    countryCode: "IN",
+    rateBeverage: "Fair",
+    rateClean: "Bad",
+    rateExp: "Excellent",
+    rateService: "Good",
   });
 }
 // need select check boxes handling states and column
-const TableView = () => {
+const TableView = ({ tableData }) => {
   const [fixedTop, setFixedTop] = useState(false);
   // row selection related stuff
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
@@ -118,7 +148,8 @@ const TableView = () => {
     <Table
       rowSelection={rowSelection}
       columns={columns}
-      dataSource={data}
+      // dataSource={data}
+      dataSource={tableData}
       scroll={{
         x: 1500,
       }}
