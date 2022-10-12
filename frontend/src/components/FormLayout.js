@@ -5,7 +5,7 @@ import FormSectionTop from "./FormSectionTop";
 const FormLayout = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e.targer);
+    console.log(e.target);
   };
   return (
     <form
@@ -14,6 +14,11 @@ const FormLayout = () => {
     >
       <FormSectionTop />
       <FormSectionBottom />
+      <div className="col-auto">
+        <button type="submit" className="btn btn-primary">
+          Submit
+        </button>
+      </div>
     </form>
   );
 };
