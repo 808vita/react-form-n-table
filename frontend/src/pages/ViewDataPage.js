@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react";
 import TableView from "../components/TableView";
-import { processData } from "../utils/processData";
-import { getFormData } from "../utils/LoadData";
+
 import useTable from "../hooks/useTable";
 
 const ViewDataPage = () => {

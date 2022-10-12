@@ -7,22 +7,22 @@ const Header = () => {
     <ul className="nav nav-tabs">
       <li className="nav-item">
         <Link to={"/"}>
-          <a
+          <p
             className={`nav-link ${pathname === "/" && "active"}`}
             aria-current="page"
           >
             New Feedback
-          </a>
+          </p>
         </Link>
       </li>
       <li className="nav-item">
         <Link to={"/view-data"}>
-          <a
+          <p
             className={`nav-link ${pathname === "/view-data" && "active"}`}
             aria-current="page"
           >
             View Data
-          </a>
+          </p>
         </Link>
       </li>
     </ul>

@@ -1,4 +1,5 @@
-import { Switch, Table } from "antd";
+// import { Switch, Table } from "antd";
+import { Table } from "antd";
 import React, { useState } from "react";
 import ReactCountryFlag from "react-country-flag";
 const columns = [
@@ -95,7 +96,7 @@ for (let i = 0; i < 100; i++) {
 }
 // need select check boxes handling states and column
 const TableView = ({ tableData }) => {
-  const [fixedTop, setFixedTop] = useState(false);
+  // const [fixedTop, setFixedTop] = useState(false);
   // row selection related stuff
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
 
