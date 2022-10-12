@@ -29,7 +29,7 @@ const FormQuestion = ({ quesType, handleChange, errors }) => {
     }
     handleChange({ target: { name: quesType, value: selected } });
     console.log(selected);
-  }, [selected]);
+  }, [selected, quesType, handleChange]);
 
   return (
     <>

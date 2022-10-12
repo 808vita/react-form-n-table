@@ -1,5 +1,3 @@
-import React, { useEffect } from "react";
-
 const FormSectionTop = ({ errors, handleChange, formValues }) => {
   return (
     <div className="row g-3">
