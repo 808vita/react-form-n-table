@@ -6,9 +6,9 @@ const useTable = () => {
   const [tableData, setTableData] = useState([]);
 
   async function dataIndex() {
-    const RawData = await getFormData();
+    await getFormData(setTableData);
     // setTableData(processData(RawData));
-    setTableData(RawData);
+    // setTableData(RawData);
   }
 
   useEffect(() => {

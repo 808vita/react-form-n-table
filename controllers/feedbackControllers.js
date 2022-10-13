@@ -7,7 +7,25 @@ const mongoose = require("mongoose");
 
 const getFeedbacks = async (req, res) => {
   try {
-    const feedbacks = await Feedback.find().sort({ createdAt: -1 });
+    // const feedbacks = await Feedback.find({}).sort({
+    //   createdAt: -1,
+    // });
+
+    const feedbacks = await Feedback.aggregate([
+      {
+        $project: {
+          key: "$_id",
+          countryCode: "$countryCode",
+          customerName: "$customerName",
+          email: "$email",
+          phone: "$phone",
+          rateBeverage: "$rateBeverage",
+          rateClean: "$rateClean",
+          rateExp: "$rateExp",
+          rateService: "$rateService",
+        },
+      },
+    ]);
 
     res.status(200).json(feedbacks);
   } catch (error) {
