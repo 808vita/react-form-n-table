@@ -12,6 +12,11 @@
 - In terminal use:"npm i" (without quotes)
 - Then use "npm run dev " script in the terminal (without quotes)
 - This would run node server and serve react build verions in localhost:4000
+- \*\*\* requires .env file at the level as server.js file
+- .env should contain the following:
+- NODE_ENV="production"
+- MONG_URI="your mongodb uri"
+- PORT=4000
 
 ### Run React Dev verison with Node server
 
@@ -23,6 +28,7 @@
 - In terminal use:"npm i" (without quotes)
 - Then use "npm run dev " script in the terminal (without quotes)
 - This would run node server
+- Still requires the .env file! Need to provide MONG_URI="your mongodb uri" , this will be used to connect with db
 
 #### Terminal 1
 
