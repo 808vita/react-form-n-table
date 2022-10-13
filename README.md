@@ -19,3 +19,5 @@ The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
 This react app extensively uses bootstrap for UI & browser local storage as a mock database .
+Also uses Ant design components like :
+Table , modal , search input and simple buttons.
