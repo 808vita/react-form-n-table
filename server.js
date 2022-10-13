@@ -2,7 +2,7 @@ require("dotenv").config();
 
 const express = require("express");
 const mongoose = require("mongoose");
-
+const feedbackRoutes = require("./routes/feedbackRoutes");
 const app = express();
 
 app.use(express.json());
@@ -16,6 +16,7 @@ app.use((req, res, next) => {
 const port = process.env.PORT;
 
 app.use("/api", (req, res) => res.status(200).json({ oof: "oof" }));
+app.use("/api/feedback", feedbackRoutes);
 
 mongoose
   .connect(process.env.MONG_URI)
