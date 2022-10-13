@@ -25,7 +25,7 @@ body{
 }
 
 .ant-table-thead .ant-table-cell {
-  background-color: rgba(160, 30, 211, 0.089);
+  background-color: rgba(239,233,251,255);
 }
 
 .form-label:after {
@@ -35,4 +35,10 @@ body{
 
 form .form-label{
  font-weight:bolder; 
+}
+
+.tick-shadow{
+
+  border-radius: 50%;
+  box-shadow: 0 0 50px rgba(168, 168, 168, 0.315);
 }

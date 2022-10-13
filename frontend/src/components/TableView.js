@@ -6,8 +6,8 @@ const columns = [
   {
     title: "Form Details",
     key: "operation",
-    fixed: "left",
-    width: 150,
+
+    width: 125,
     render: () => <p>view details</p>,
   },
 
