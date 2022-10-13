@@ -53,20 +53,42 @@ export const deleteFormData = async (deleteItems, refreshData) => {
     console.log("please select items");
     return;
   }
+  // try {
+  //   let feedbackFormData = await JSON.parse(
+  //     localStorage.getItem("feedbackFormData")
+  //   );
+  //   console.log(feedbackFormData);
+  //   let newFeedbackData;
+  //   if (feedbackFormData) {
+  //     newFeedbackData = feedbackFormData.filter(
+  //       (item) => !deleteItems.includes(item.key)
+  //     );
+  //     localStorage.setItem("feedbackFormData", JSON.stringify(newFeedbackData));
+  //     refreshData();
+  //   }
+  // } catch (error) {
+  //   console.log(error);
+  // }
+
   try {
-    let feedbackFormData = await JSON.parse(
-      localStorage.getItem("feedbackFormData")
-    );
-    console.log(feedbackFormData);
-    let newFeedbackData;
-    if (feedbackFormData) {
-      newFeedbackData = feedbackFormData.filter(
-        (item) => !deleteItems.includes(item.key)
-      );
-      localStorage.setItem("feedbackFormData", JSON.stringify(newFeedbackData));
+    const response = await fetch("/api/feedback/delete", {
+      method: "DELETE",
+      body: JSON.stringify({ deleteItems }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const json = await response.json();
+
+    if (!response.ok) {
+      console.log(json.error);
+    }
+    if (response.ok) {
+      console.log("oof", json);
       refreshData();
+      return;
     }
   } catch (error) {
-    console.log(error);
+    console.log("error", error);
   }
 };

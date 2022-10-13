@@ -17,12 +17,14 @@ const ViewDataPage = () => {
 
   return (
     <div>
-      {tableData.length > 0 && (
+      {tableData.length > 0 ? (
         <TableView
           tableData={tableData}
           refreshData={dataIndex}
           countRecords={countRecords}
         />
+      ) : (
+        <h4>No records to show ! Please add feedbacks and try again !</h4>
       )}
     </div>
   );

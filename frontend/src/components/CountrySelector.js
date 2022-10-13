@@ -37,18 +37,6 @@ const CountrySelector = ({ handleChange }) => {
         className="dropdown-menu"
         style={{ maxHeight: "280px", overflowY: "auto" }}
       >
-        {/* <li>
-          <ReactCountryFlag
-            countryCode="US"
-            svg
-            style={{
-              width: "2rem",
-              height: "2rem",
-            }}
-            title="US"
-          />
-          ;
-        </li> */}
         {countries.map((country) => (
           <li key={`${country.iso2_cc}_${country.e164_cc}_emoji`}>
             <div

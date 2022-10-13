@@ -94,10 +94,19 @@ const postFeedback = async (req, res) => {
 };
 
 const deleteFeedback = async (req, res) => {
-  try {
-    const { deleteItems } = req.params;
+  const { deleteItems } = req.body;
+  console.log(deleteItems);
 
-    const items = Feedback.deleteMany({ _id: { $in: deleteItems } });
+  try {
+    // if (!itemsArray.length > 0) {
+    //   throw Error("please select items");
+    //   return;
+    // }
+
+    const items = await Feedback.deleteMany({
+      _id: { $in: deleteItems },
+    });
+    res.status(200).json({ items });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
