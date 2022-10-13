@@ -2,6 +2,7 @@
 import { Table } from "antd";
 import React, { useState } from "react";
 import ReactCountryFlag from "react-country-flag";
+import TableHeaderTop from "./TableHeaderTop";
 const columns = [
   {
     title: "Form Details",
@@ -95,7 +96,7 @@ for (let i = 0; i < 100; i++) {
   });
 }
 // need select check boxes handling states and column
-const TableView = ({ tableData }) => {
+const TableView = ({ tableData, refreshData }) => {
   // const [fixedTop, setFixedTop] = useState(false);
   // row selection related stuff
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
@@ -147,37 +148,45 @@ const TableView = ({ tableData }) => {
   };
 
   return (
-    <Table
-      rowSelection={rowSelection}
-      columns={columns}
-      // dataSource={data}
-      dataSource={tableData}
-      scroll={{
-        x: 1500,
-      }}
-      //scroll fixing code -- review delete later
-      //   summary={() => (
-      //     <Table.Summary fixed={fixedTop ? "top" : "bottom"}>
-      //       <Table.Summary.Row>
-      //         <Table.Summary.Cell index={0} colSpan={2}>
-      //           <Switch
-      //             checkedChildren="Fixed Top"
-      //             unCheckedChildren="Fixed Top"
-      //             checked={fixedTop}
-      //             onChange={() => {
-      //               setFixedTop(!fixedTop);
-      //             }}
-      //           />
-      //         </Table.Summary.Cell>
-      //         <Table.Summary.Cell index={2} colSpan={8}>
-      //           Scroll Context
-      //         </Table.Summary.Cell>
-      //         <Table.Summary.Cell index={10}>Fix Right</Table.Summary.Cell>
-      //       </Table.Summary.Row>
-      //     </Table.Summary>
-      //   )}
-      sticky
-    />
+    <>
+      <TableHeaderTop refreshData={refreshData} />
+      <Table
+        rowSelection={rowSelection}
+        columns={columns}
+        // dataSource={data}
+        dataSource={tableData}
+        scroll={{
+          x: 1500,
+        }}
+        //scroll fixing code -- review delete later
+        //   summary={() => (
+        //     <Table.Summary fixed={fixedTop ? "top" : "bottom"}>
+        //       <Table.Summary.Row>
+        //         <Table.Summary.Cell index={0} colSpan={2}>
+        //           <Switch
+        //             checkedChildren="Fixed Top"
+        //             unCheckedChildren="Fixed Top"
+        //             checked={fixedTop}
+        //             onChange={() => {
+        //               setFixedTop(!fixedTop);
+        //             }}
+        //           />
+        //         </Table.Summary.Cell>
+        //         <Table.Summary.Cell index={2} colSpan={8}>
+        //           Scroll Context
+        //         </Table.Summary.Cell>
+        //         <Table.Summary.Cell index={10}>Fix Right</Table.Summary.Cell>
+        //       </Table.Summary.Row>
+        //     </Table.Summary>
+        //   )}
+        sticky
+      />
+      <div className="d-flex flex-row-reverse align-items-center">
+        <button className="btn btn-danger pe-4 px-4 pt-2 pb-2 text-light fs-6">
+          Delete
+        </button>
+      </div>
+    </>
   );
 };
 

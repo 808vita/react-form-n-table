@@ -9,6 +9,7 @@ export const postFormData = async (data) => {
     );
     console.log(feedbackFormData);
     if (!feedbackFormData) {
+      data.key = new Date();
       localStorage.setItem("feedbackFormData", JSON.stringify([data]));
 
       feedbackFormData = await JSON.parse(
@@ -19,7 +20,7 @@ export const postFormData = async (data) => {
       return;
     }
     console.log(feedbackFormData, "oof not null");
-
+    data.key = new Date();
     feedbackFormData.push(data);
     localStorage.setItem("feedbackFormData", JSON.stringify(feedbackFormData));
 

@@ -1,14 +1,17 @@
 import { useState, useEffect } from "react";
-import { processData } from "../utils/processData";
+// import { processData } from "../utils/processData";
 import { getFormData } from "../utils/LoadData";
 
 const useTable = () => {
   const [tableData, setTableData] = useState([]);
+
+  async function dataIndex() {
+    const RawData = await getFormData();
+    // setTableData(processData(RawData));
+    setTableData(RawData);
+  }
+
   useEffect(() => {
-    async function dataIndex() {
-      const RawData = await getFormData();
-      setTableData(processData(RawData));
-    }
     dataIndex();
   }, []);
 
@@ -16,7 +19,7 @@ const useTable = () => {
     console.log(tableData);
   }, [tableData]);
 
-  return { tableData };
+  return { tableData, dataIndex };
 };
 
 export default useTable;
