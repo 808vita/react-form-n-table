@@ -8,7 +8,7 @@ const ViewDataPage = () => {
   const [countRecords, setCountRecords] = useState(0);
 
   useEffect(() => {
-    if (!tableData) {
+    if (!tableData || !tableData.length > 0) {
       return;
     }
 
@@ -17,11 +17,13 @@ const ViewDataPage = () => {
 
   return (
     <div>
-      <TableView
-        tableData={tableData}
-        refreshData={dataIndex}
-        countRecords={countRecords}
-      />
+      {tableData.length > 0 && (
+        <TableView
+          tableData={tableData}
+          refreshData={dataIndex}
+          countRecords={countRecords}
+        />
+      )}
     </div>
   );
 };

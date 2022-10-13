@@ -9,8 +9,6 @@ const getFeedbacks = async (req, res) => {
   try {
     const feedbacks = await Feedback.find().sort({ createdAt: -1 });
 
-    feedbacks.key = feedbacks._id;
-
     res.status(200).json(feedbacks);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -42,7 +40,7 @@ const postFeedback = async (req, res) => {
       !rateExp ||
       !rateService
     ) {
-      throw Error("please fill all fields");
+      throw Error("please fill all fields", req.body);
     }
     if (!validator.isEmail(email)) {
       throw Error("Email is not valid");

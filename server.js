@@ -15,7 +15,7 @@ app.use((req, res, next) => {
 
 const port = process.env.PORT;
 
-app.use("/api", (req, res) => res.status(200).json({ oof: "oof" }));
+// app.use("/api", (req, res) => res.status(200).json({ oof: "oof" }));
 app.use("/api/feedback", feedbackRoutes);
 
 mongoose

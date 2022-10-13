@@ -39,10 +39,10 @@ const useForm = () => {
   useEffect(() => {
     if (Object.keys(errors).length === 0 && submitting) {
       //  api call , set local storage & navigate
-      postFormData(formValues);
+      postFormData(formValues, navigate, setSubmitting);
       console.log("submitted data", formValues);
-      navigate("/success");
-      setSubmitting(false);
+      // navigate("/success");
+      // setSubmitting(false);
     }
     setSubmitting(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps

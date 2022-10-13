@@ -13,7 +13,7 @@ router.get("/", getFeedbacks);
 //needs validations
 // for email , phone & restrict mcq options to pre defined ones
 
-router.get("/", postFeedback);
+router.post("/", postFeedback);
 
 // delete a feedback
 router.delete("/", deleteFeedback);
