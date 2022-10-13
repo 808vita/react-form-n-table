@@ -1,17 +1,17 @@
 import React from "react";
 import SerachBar from "./SerachBar";
 import { useNavigate } from "react-router-dom";
-const TableHeaderTop = ({ refreshData }) => {
+const TableHeaderTop = ({ refreshData, setSearchTxt, countRecords }) => {
   const navigate = useNavigate();
   return (
     <div className="d-flex flex-wrap align-items-center justify-content-between">
       <div>
         <h4>Aromatic bar</h4>
-        112 records found , 3 filters applied
+        <p>{countRecords} records found</p>
       </div>
       <div className="d-flex flex-wrap align-items-center">
         <div>
-          <SerachBar />
+          <SerachBar setSearchTxt={setSearchTxt} />
         </div>
         <div>
           <button

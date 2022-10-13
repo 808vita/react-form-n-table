@@ -10,17 +10,20 @@ const { Search } = Input;
 //     }}
 //   />
 // );
-const onSearch = (value) => console.log(value);
-const SerachBar = () => (
-  <Space direction="vertical">
-    <Search
-      placeholder="search"
-      allowClear
-      onSearch={onSearch}
-      style={{
-        width: 200,
-      }}
-    />
-  </Space>
-);
+
+const SerachBar = ({ setSearchTxt }) => {
+  const onSearch = (value) => setSearchTxt(value);
+  return (
+    <Space direction="vertical">
+      <Search
+        placeholder="search email"
+        allowClear
+        onSearch={onSearch}
+        style={{
+          width: 200,
+        }}
+      />
+    </Space>
+  );
+};
 export default SerachBar;

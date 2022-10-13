@@ -4,103 +4,12 @@ import React, { useState } from "react";
 import ReactCountryFlag from "react-country-flag";
 import { deleteFormData } from "../utils/LoadData";
 import TableHeaderTop from "./TableHeaderTop";
-const columns = [
-  {
-    title: "Form Details",
-    key: "operation",
+import ViewDetailsModal from "./ViewDetailsModal";
 
-    width: 125,
-    render: () => <p>view details</p>,
-  },
-
-  {
-    title: "Customer Name",
-    width: 150,
-    dataIndex: "customerName",
-    key: "customerName",
-  },
-  {
-    title: "Email",
-    width: 200,
-    dataIndex: "email",
-    key: "email",
-  },
-  // {
-  //   title: "Code",
-  //   dataIndex: "countryCode",
-  //   key: "countryCode",
-  //   width: 100,
-  // },
-  {
-    title: "Country Code",
-    key: "operation",
-
-    width: 150,
-    render: (text, record, index) => (
-      <ReactCountryFlag
-        countryCode={record.countryCode}
-        svg
-        style={{
-          width: "2rem",
-          height: "2rem",
-        }}
-        title={record.countryCode}
-      />
-    ),
-  },
-  {
-    title: "Phone",
-    dataIndex: "phone",
-    key: "phone",
-    width: 150,
-  },
-  {
-    title:
-      "Please rate the quality of the service you received from your host.",
-    dataIndex: "rateService",
-    key: "rateService",
-    width: 300,
-  },
-  {
-    title: "Please rate the quality of the beverage.",
-    dataIndex: "rateBeverage",
-    key: "rateBeverage",
-    width: 300,
-  },
-  {
-    title: "Was our restaurant clean?",
-    dataIndex: "rateClean",
-    key: "rateClean",
-    width: 300,
-  },
-
-  {
-    title: "Please rate your overall dining experience.",
-    dataIndex: "rateExp",
-    key: "rateExp",
-    width: 300,
-  },
-];
-const data = [];
-
-for (let i = 0; i < 100; i++) {
-  data.push({
-    key: i,
-    name: `Edrward ${i}`,
-    email: `oof@oof${i}.oof`,
-    phone: `58${i}${i + 1}`,
-    countryCode: "IN",
-    rateBeverage: "Fair",
-    rateClean: "Bad",
-    rateExp: "Excellent",
-    rateService: "Good",
-  });
-}
 // need select check boxes handling states and column
-const TableView = ({ tableData, refreshData }) => {
-  // const [fixedTop, setFixedTop] = useState(false);
-  // row selection related stuff
+const TableView = ({ tableData, refreshData, countRecords }) => {
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
+  const [searchTxt, setSearchTxt] = useState("");
 
   const onSelectChange = (newSelectedRowKeys) => {
     console.log("selectedRowKeys changed: ", selectedRowKeys);
@@ -151,39 +60,96 @@ const TableView = ({ tableData, refreshData }) => {
   const handleDelteBtn = (deleteItems, refreshData) => {
     deleteFormData(deleteItems, refreshData);
   };
+  const columns = [
+    {
+      title: "Form Details",
+      key: "operation",
 
+      width: 125,
+      render: (record) => <ViewDetailsModal record={record} />,
+    },
+
+    {
+      title: "Customer Name",
+      width: 150,
+      dataIndex: "customerName",
+      key: "customerName",
+    },
+    {
+      title: "Email",
+      width: 200,
+      dataIndex: "email",
+      key: "email",
+      filteredValue: [searchTxt],
+      onFilter: (val, record) => {
+        return record.email.includes(val);
+      },
+    },
+
+    {
+      title: "Country Code",
+      key: "operation",
+
+      width: 150,
+      render: (text, record, index) => (
+        <ReactCountryFlag
+          countryCode={record.countryCode}
+          svg
+          style={{
+            width: "2rem",
+            height: "2rem",
+          }}
+          title={record.countryCode}
+        />
+      ),
+    },
+    {
+      title: "Phone",
+      dataIndex: "phone",
+      key: "phone",
+      width: 150,
+    },
+    {
+      title:
+        "Please rate the quality of the service you received from your host.",
+      dataIndex: "rateService",
+      key: "rateService",
+      width: 300,
+    },
+    {
+      title: "Please rate the quality of the beverage.",
+      dataIndex: "rateBeverage",
+      key: "rateBeverage",
+      width: 300,
+    },
+    {
+      title: "Was our restaurant clean?",
+      dataIndex: "rateClean",
+      key: "rateClean",
+      width: 300,
+    },
+
+    {
+      title: "Please rate your overall dining experience.",
+      dataIndex: "rateExp",
+      key: "rateExp",
+      width: 300,
+    },
+  ];
   return (
     <>
-      <TableHeaderTop refreshData={refreshData} />
+      <TableHeaderTop
+        countRecords={countRecords}
+        refreshData={refreshData}
+        setSearchTxt={setSearchTxt}
+      />
       <Table
         rowSelection={rowSelection}
         columns={columns}
-        // dataSource={data}
         dataSource={tableData}
         scroll={{
           x: 1500,
         }}
-        //scroll fixing code -- review delete later
-        //   summary={() => (
-        //     <Table.Summary fixed={fixedTop ? "top" : "bottom"}>
-        //       <Table.Summary.Row>
-        //         <Table.Summary.Cell index={0} colSpan={2}>
-        //           <Switch
-        //             checkedChildren="Fixed Top"
-        //             unCheckedChildren="Fixed Top"
-        //             checked={fixedTop}
-        //             onChange={() => {
-        //               setFixedTop(!fixedTop);
-        //             }}
-        //           />
-        //         </Table.Summary.Cell>
-        //         <Table.Summary.Cell index={2} colSpan={8}>
-        //           Scroll Context
-        //         </Table.Summary.Cell>
-        //         <Table.Summary.Cell index={10}>Fix Right</Table.Summary.Cell>
-        //       </Table.Summary.Row>
-        //     </Table.Summary>
-        //   )}
         sticky
       />
       <div className="d-flex flex-row-reverse align-items-center">
