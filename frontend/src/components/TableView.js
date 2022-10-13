@@ -2,6 +2,7 @@
 import { Table } from "antd";
 import React, { useState } from "react";
 import ReactCountryFlag from "react-country-flag";
+import { deleteFormData } from "../utils/LoadData";
 import TableHeaderTop from "./TableHeaderTop";
 const columns = [
   {
@@ -147,6 +148,10 @@ const TableView = ({ tableData, refreshData }) => {
     ],
   };
 
+  const handleDelteBtn = (deleteItems, refreshData) => {
+    deleteFormData(deleteItems, refreshData);
+  };
+
   return (
     <>
       <TableHeaderTop refreshData={refreshData} />
@@ -182,7 +187,10 @@ const TableView = ({ tableData, refreshData }) => {
         sticky
       />
       <div className="d-flex flex-row-reverse align-items-center">
-        <button className="btn btn-danger pe-4 px-4 pt-2 pb-2 text-light fs-6">
+        <button
+          onClick={() => handleDelteBtn(selectedRowKeys, refreshData)}
+          className="btn btn-danger pe-4 px-4 pt-2 pb-2 text-light fs-6"
+        >
           Delete
         </button>
       </div>

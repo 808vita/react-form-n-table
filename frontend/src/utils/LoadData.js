@@ -50,3 +50,26 @@ export const getFormData = async () => {
     console.log(error);
   }
 };
+
+export const deleteFormData = async (deleteItems, refreshData) => {
+  if (!deleteItems.length > 0) {
+    console.log("please select items");
+    return;
+  }
+  try {
+    let feedbackFormData = await JSON.parse(
+      localStorage.getItem("feedbackFormData")
+    );
+    console.log(feedbackFormData);
+    let newFeedbackData;
+    if (feedbackFormData) {
+      newFeedbackData = feedbackFormData.filter(
+        (item) => !deleteItems.includes(item.key)
+      );
+      localStorage.setItem("feedbackFormData", JSON.stringify(newFeedbackData));
+      refreshData();
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
