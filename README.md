@@ -30,7 +30,7 @@
 - This would run node server
 - Still requires the .env file! Need to provide MONG_URI="your mongodb uri" , this will be used to connect with db
 
-#### Terminal 1
+#### Terminal 2
 
 - cd frontend (folder)
 - In terminal use:"npm i" (without quotes)
